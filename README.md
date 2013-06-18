@@ -1,4 +1,4 @@
-Plus.io - Google App Engine (RESTful API)
+Plus.io - GAE API
 =============
 
 Plus.io Restful Interface for Google App Engine
