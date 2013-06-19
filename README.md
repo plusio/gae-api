@@ -23,18 +23,21 @@ The server will respond with a list of all of the columns within the specified c
   
 
 
-**Insert into Collection**
+**Insert into a Collection**
 
     https://(app engine url)/collections/(collection name)
   
 
-You can post to the same url that you use to get a list of the collection. Each request should have a timestamp in the time key.
+You can post to the same url that you use to get a list of the collection. Each request should have a timestamp in the time key. If the collection you want to post into doesn't exsist it will be created for you. 
 
     {
     	"Column" : "Value",
     	"Time" : "1371614094"
     }
 
+
+
+## Items ##
 
 
 
