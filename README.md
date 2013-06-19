@@ -21,9 +21,9 @@ The following routes allow you to interact with data from the collections.
 
 The server will respond with a list of all of the data within the specified collection. Additionaly you will be able to specify a few parameters in the URL.
 
-    ?filter=columname&value=value //Specifies a column to filter by and a value
-    ?offset=20 //Offsets the results by 20
-    ?limit=20 //Limits the results by 20
+    ?filter=columname&value=value 		//Specifies a column to filter by and a value
+    ?offset=20 							//Offsets the results by 20
+    ?limit=20 							//Limits the results by 20
   
 
 
