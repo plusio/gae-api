@@ -1,14 +1,12 @@
 # Plus.io - GAE API
 ===================
 
---------------
 
 Plus.io Restful Interface for Google App Engine (This code is still in Beta)
 
 
---------------
 ## Collections ##
---------------
+
 
 Using App Engine you are able to store the data from your mobile application on Google Datastore.
 
