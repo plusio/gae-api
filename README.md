@@ -19,7 +19,7 @@ The following routes allow you to interact with data from the collections.
     https://(app engine url)/collections/(collection name)
   
 
-The server will respond with a list of all of the columns within the specified collection.
+The server will respond with a list of all of the data within the specified collection.
   
 
 
@@ -28,7 +28,7 @@ The server will respond with a list of all of the columns within the specified c
     https://(app engine url)/collections/(collection name)
   
 
-You can post to the same url that you use to get a list of the collection. Each request should have a timestamp in the time key. If the collection you want to post into doesn't exsist it will be created for you. 
+You can post to the same url that you use to get the data from a collection. Each request should have a timestamp in the time key. If the collection you want to post into doesn't exsist it will be created for you. 
 
     {
     	"Column" : "Value",
