@@ -54,6 +54,8 @@ from google.appengine.ext.db import metadata
 from google.appengine.ext.db import Key
 from google.appengine.ext.db.metadata import Kind
 from google.appengine.api.runtime import runtime
+from google.appengine.api import oauth
+
 import os
 import cloudstorage
 import webapp2
@@ -80,10 +82,7 @@ class CustomCollection(db.Expando):
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.headers['Content-Type'] = 'application/json'
-        self.response.out.write("%s({" % urllib2.unquote(self.request.get('callback')))
-        self.response.out.write("'Status':'Good'")
-        self.response.write('})')
+        pass
 
 
 ###     Get information on the app engine app itself (To Be Expanded)     ###
@@ -151,14 +150,30 @@ class StructureKey(webapp2.RequestHandler):
         global currentcollection
         currentcollection = collection.lower()
         c = CustomCollection()
+
         c.kind()
-        r = c.all().count()
+        n = c.all()
+
+        if self.request.get("filter") != "":
+            n.filter("%s" % self.request.get("filter"), "%s" %  self.request.get("value").replace(' ', '_'))
+        else:
+            pass
+
+        if self.request.get("offset") != "":
+            fil = n.fetch(int(self.request.get("limit")), int(self.request.get("offset")))
+        elif self.request.get("limit") != "":
+            fil = n.fetch(int(self.request.get("limit")))
+        else:
+            fil = n
+
+        r = fil.count()
+
         m = metadata.get_properties_of_kind(collection.lower())
         arr = {}
         full = []
         count = 0
-        for n in m:
-            arr[count] = n
+        for ab in m:
+            arr[count] = ab
             count += 1
         arr[count] = "id"
         full.append(arr)
